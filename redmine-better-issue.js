@@ -23,7 +23,7 @@ if(status_list.length != priority_list.length || status_list.length != tracker_l
 for(i=0;i<tracker_list.length;i++) {
     var tk = tracker_list[i];
     var is_bug = false;
-    if(tk.firstElementChild.innerText == 'BUG')
+    if(tk.firstElementChild.innerText == 'BUG' || tk.firstElementChild.innerText == '运维bug')
         is_bug = true;
 
     var pr = priority_list[i];
@@ -37,16 +37,17 @@ for(i=0;i<tracker_list.length;i++) {
         if(st.firstElementChild.innerText == '新建')
             st_style = 'color: red';
         else if(st.firstElementChild.innerText == '接受')
-            st_style = 'color: blue';
-        else if(st.firstElementChild.innerText == '完成')
+            st_style = 'color: orange';
+        else if(st.firstElementChild.innerText == '完成' || st.firstElementChild.innerText == '预发布f测试完成')
             st_style = 'color: green';
         else
-            st_style = 'color: orange';
+            st_style = 'color: red';
     }
 
     pr.firstElementChild.style = st_style;
     st.firstElementChild.style = st_style;
     tk.firstElementChild.style = st_style;
 }
+
 
 })();
